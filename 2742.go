@@ -1,11 +1,20 @@
-package main //시간초괴
+package main //시간초과 -> fmt말고 bufio로 읽어야 돼
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+var read *bufio.Reader = bufio.NewReader(os.Stdin)
+var writ *bufio.Writer = bufio.NewWriter(os.Stdout)
 
 func main() {
-	var row int
-	fmt.Scanln(&row)
-	for i := row; i > 0; i-- {
-		fmt.Println(i)
+	defer writer.Flush()
+
+	var T int
+	fmt.Fscan(reader, &T)
+	for i := T; i > 0; i-- {
+		fmt.Fprintln(writer, i)
 	}
 }
